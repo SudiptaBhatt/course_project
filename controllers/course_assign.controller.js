@@ -8,9 +8,7 @@ class courseAssignController {
     async memberCourseAssign(req, res) {
         try {
             let adminCheck = await User.findOne({ _id: req.user._id });
-            // console.log('admin',adminCheck);
             if (adminCheck.role === 'admin') {
-                console.log('req', req.body);
                 if (!_.has(req.body, 'member_id')) {
                     res.send({ status: 201, data: {}, message: 'Member Id is required' });
                 }
@@ -18,13 +16,11 @@ class courseAssignController {
                     res.send({ status: 201, data: {}, message: 'Course Id is required' });
                 }
                 let memberAssignCheck = await CourseAssign.findOne({ course_id: req.body.course_id, member_id: req.body.member_id });
-                //console.log('memberAssignCheck',memberAssignCheck);
                 if (!_.isEmpty(memberAssignCheck)) {
                     res.send({ status: 201, data: {}, message: 'Member already assigned this course' });
                 }
                 else {
                     let memberAssign = await CourseAssign.create(req.body);
-                    //console.log('member add',memberAssign);
                     if (!_.isEmpty(memberAssign) && memberAssign._id) {
                         res.send({ status: 200, data: memberAssign, message: 'Course assigned to member successfully' });
                     }
@@ -37,7 +33,6 @@ class courseAssignController {
                 res.send({ status: 201, data: {}, message: 'You are not authorized to assign course to member!' });
             }
         } catch (e) {
-            //console.log(e.message)
             return res.status(500).send({ message: e.message });
         }
     };
