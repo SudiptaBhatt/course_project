@@ -1,5 +1,4 @@
 const express = require('express');
-const dotenv = require('dotenv');
 const cors = require('cors');
 const session = require('express-session');
 const cookieParser = require('cookie-parser');
@@ -38,8 +37,6 @@ const submitted_exams = require('./routes/submitted_exam.routes');
 const exam = require('./routes/exam.routes');
 
 connectDB();
-
-dotenv.config({ path: './config/config.env' });
 
 global.BASE_URL = `http://${process.env.HOST}:${getPort}`;
 
