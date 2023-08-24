@@ -14,7 +14,6 @@ const checkAuth = {
             } else {
                 res.status(401).json({ 'status': 401, "message": "Unauthorized HTTP Request" })
             }
-
         } else {
             res.status(401).json({ 'status': 401, "message": "Unauthorized HTTP Request" })
         }
