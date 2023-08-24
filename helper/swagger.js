@@ -7,7 +7,7 @@ const swaggerUi = require('swagger-ui-express');
 
 const path = require('path');
 
-/* This is for Admin end swiagger API doc */
+/* This is for Admin end swagger API doc */
 const optionsAdmin = {
 	swaggerDefinition: {
 		info: {
@@ -19,22 +19,11 @@ const optionsAdmin = {
 			},
 		},
 		tags: [
-			// {
-			// 	name: "Auth",
-			// 	description: "Authentication APIs"
-			// },
-			// {
-			// 	name: "User",
-			// 	description: "User APIs"
-			// },
+			
 		],
 		schemes: ['http'],
 		host: `127.0.0.1:` + config.app.port,
-		// schemes: ['https'],
-		// host: `compsheets-admin.dedicateddevelopers.us`,
-
-		// schemes: ['https', 'http'],
-		// host: `compsheets-admin.dedicateddevelopers.us`,
+		
 		basePath: '/api',
 		securityDefinitions: {
 			Token: {
