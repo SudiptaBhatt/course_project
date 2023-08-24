@@ -43,8 +43,6 @@ dotenv.config({ path: './config/config.env' });
 
 global.BASE_URL = `http://${process.env.HOST}:${getPort}`;
 
-PORT = process.env.PORT || 4000;
-
 app.use('/api', user);
 app.use('/api', course);
 app.use('/api', exam);
